@@ -1,8 +1,10 @@
-// Where we are going to put all the application logic for this tutorial step
+
 sap.ui.define([
-
-], function () {
+    "sap/m/Text"
+], function (Text) {
     "use strict";
-
-    alert("UI5 is ready to go.");
+    // We are using a control to display the text in the body
+    new Text({
+        text: "Hello World from control!"
+    }).placeAt('content');
 });
