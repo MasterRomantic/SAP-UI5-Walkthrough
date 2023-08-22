@@ -1,10 +1,12 @@
-
 sap.ui.define([
-    "sap/m/Text"
-], function (Text) {
+    "sap/ui/core/mvc/XMLView"
+], function (XMLView) {
     "use strict";
-    // We are using a control to display the text in the body
-    new Text({
-        text: "Hello World from control!"
-    }).placeAt('content');
+    // We are now using an XMLView to display the "Hello world" text in the body tag.
+    //Views are called asyncronously, so the "then" is executed once the view has been called.
+    XMLView.create({
+        viewName: "sap.ui.demo.walkthrough.view.App"
+    }).then(function (oView) {
+        oView.placeAt('content');
+    });
 });
