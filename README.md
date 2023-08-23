@@ -9,4 +9,4 @@ Link to actual Walkthrough can be found [here](https://sapui5.hana.ondemand.com/
 
 Link to YouTube video explaining the walkthrough can be found [here](https://youtu.be/mmSB85rWQ3w).
 
-Getting started guide to help you set up your UI5 CLI can be found [here](https://sap.github.io/ui5-tooling/v3/pages/GettingStarted/)
+Getting started guide to help you set up your UI5 CLI can be found [here](https://sap.github.io/ui5-tooling/v3/pages/GettingStarted/).
