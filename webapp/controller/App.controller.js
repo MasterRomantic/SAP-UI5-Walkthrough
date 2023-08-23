@@ -1,26 +1,40 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageToast",
-    // adding the json model
-    "sap/ui/model/json/JSONModel"
- ], function (Controller, MessageToast, JSONModel) {
+    "sap/ui/model/json/JSONModel",
+    // adding the resource model for the translatable text
+    "sap/ui/model/resource/ResourceModel"
+], function (Controller, MessageToast, JSONModel, ResourceModel) {
     "use strict";
     return Controller.extend("sap.ui.demo.walkthrough.controller.App", {
-        // onInit is one of SAPUI5’s lifecycle methods that is invoked by the
-        // framework when the controller is created, similar to a constructor function of a control.
-       onInit : function () {
-        // set the data model on the view
-          var oData = {
-             recipient : {
-                name : "From a Json Model"
-             }
-          };
-          var oModel = new JSONModel(oData);
-          // To be able to use this model from within the XML view
-          this.getView().setModel(oModel);
-       },
-       onShowHello : function () {
-          MessageToast.show("Hello World");
-       }
+        onInit: function () {
+            // set the data model on the view
+            var oData = {
+                recipient: {
+                    name: "World"
+                }
+            };
+            var oModel = new JSONModel(oData);
+            this.getView().setModel(oModel);
+
+            // create and set the i18n model
+            var i18nModel = new ResourceModel({
+                bundleName: "sap.ui.demo.walkthrough.i18n.i18n",
+                supportedLocales: [""],
+                fallbackLocale: ""
+            });
+            // set the model to the view and give it an alias of "i18n"
+            this.getView().setModel(i18nModel, "i18n");
+        },
+
+        onShowHello: function () {
+            // read message from i18n model
+            var oBundle = this.getView().getModel("i18n").getResourceBundle();
+            var sRecipient = this.getView().getModel().getProperty("/recipient/name");
+            var sMsg = oBundle.getText("helloMsg", [sRecipient]);
+
+            // Show the message
+            MessageToast.show(sMsg);
+        }
     });
- });
+});
