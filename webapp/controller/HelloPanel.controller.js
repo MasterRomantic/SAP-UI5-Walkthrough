@@ -13,6 +13,19 @@ sap.ui.define([
 
             // Show the message
             MessageToast.show(sMsg);
+        },
+        onOpenDialog : function () {
+            // create the dialog lazily
+            if(!this.pDialog){
+                // Load asynchronous XML Fragement
+                this.pDialog = this.loadFragment({
+					name: "sap.ui.demo.walkthrough.view.HelloDialog"
+				});
+                this.pDialog.then(function(oDialog) {
+                    oDialog.open();
+                });
+            }
         }
     });
-})
+});
+
