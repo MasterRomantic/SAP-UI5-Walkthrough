@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <!-- This script bootstraps the UI5 resources -->
-	<!-- For the valueLiveUpdate to work make sure data-sap-ui-compatVersion="edge" -->
-    <script
-		id="sap-ui-bootstrap"
-		src="https://sdk.openui5.org/resources/sap-ui-core.js"
-		data-sap-ui-theme="sap_belize"
-		data-sap-ui-libs="sap.m"
-		data-sap-ui-compatVersion="edge"
-		data-sap-ui-async="true"
-		data-sap-ui-onInit="module:sap/ui/demo/walkthrough/index"
-		data-sap-ui-resourceroots='{
-			"sap.ui.demo.walkthrough": "./"
+	<head>
+		<!-- This script bootstraps the UI5 resources -->
+		<script
+			id="sap-ui-bootstrap"
+			src="https://sdk.openui5.org/resources/sap-ui-core.js"
+			data-sap-ui-theme="sap_belize"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-async="true"
+			data-sap-ui-onInit="module:sap/ui/core/ComponentSupport"
+			data-sap-ui-resourceroots='{
+				"sap.ui.demo.walkthrough": "./"
+			}'>
+		</script>
+		<meta charset="UTF-8">
+		<title>SAPUI5 Walkthrough</title>
+	</head>
+	<body class="sapUIBody" id="content">
+		<div 
+		data-sap-ui-component 
+		data-name="sap.ui.demo.walkthrough" 
+		data-id="container" 
+		data-settings='{
+			"id" : "walkthrough"
 		}'>
-	</script>
-    <meta charset="UTF-8">
-    <title>SAPUI5 Walkthrough</title>
-</head>
-<body class="sapUIBody" id="content"></body>
+		</div>
+	</body>
 </html>
