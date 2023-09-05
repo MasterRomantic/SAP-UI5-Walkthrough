@@ -30,6 +30,18 @@ sap.ui.define([
          // it is automatically instantiated based on our 
          // AppDescriptor configuration and assigned to the component.
          this.getRouter().initialize();
+      },
+
+      getContentDensityClass: function () {
+         if(!this._sContentDensityClass) {
+            if (!Device.support.touch) {
+               this._sContentDensityClass = "sapUiSizeCompact";
+            } else {
+               this._sContentDensityClass = "sapUiSizeCozy";
+            }
+
+            return this._sContentDensityClass;
+         }
       }
    });
 });    
